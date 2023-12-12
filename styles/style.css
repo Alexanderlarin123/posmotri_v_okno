@@ -9,13 +9,17 @@ html {
 }
 
 .page {
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  padding:133px 30px;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  background-color: #1b1919;
+  background-color: #801e1e;
 }
 
 h1,
@@ -35,4 +39,64 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.content{
+  display:flex;
+  flex-direction: row; 
+  justify-content:flex-start;
+  align-items: flex-end;
+  gap:30px;
+  width:1200px;
+  background-color: blue;
+}
+.result{
+  display:flex;
+  flex-direction: column; 
+  justify-content:space-between;
+  align-items: stretch;
+  gap:16px; 
+background-color: antiquewhite;
+}
+.result__video-container{
+  width: 711px;
+  height: 386px;
+  background-color: aqua;
+}
+.result__video{
+  height:100%;
+
+
+}
+.search-form{
+  display:flex;
+  flex-direction: row; 
+  justify-content:space-between;
+  align-items: start;
+  background-color: aquamarine;
+}
+
+
+
+
+
+
+
+.content__details{
+  display:flex;
+  flex-direction: column; 
+  justify-content:start;
+  align-items: start;
+  gap:26px;
+  background-color: #43167c;
+  width: auto;
+}
+
+.title{
+
+}
+
+.content__list{
+  max-height:298px;
+  overflow: scroll;
 }
