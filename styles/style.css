@@ -6,20 +6,23 @@
 
 html {
   block-size: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .page {
-  display:flex;
+  display: flex;
   align-items: center;
-  justify-content:center;
-  padding:133px 30px;
+  justify-content: center;
+  padding: 133px 30px;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  background-color: #801e1e;
+  background-color: #1B1919;
+  ;
 }
 
 h1,
@@ -41,62 +44,182 @@ ol {
   list-style: none;
 }
 
-.content{
-  display:flex;
-  flex-direction: row; 
-  justify-content:flex-start;
+.visually-hidden {
+  position: absolute; /* элемент вырывают из потока */
+  width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
+  height: 1px;
+  margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
+  padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
+  border: 0; /* убирают границу, она тоже может быть у каких-то элементов */ 
+  clip: rect(0 0 0 0); /* это свойство обрезает видимую область до нулевого значения */ 
+  overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
+  }
+
+/*-------------------CONTENT----------------------*/
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: flex-end;
-  gap:30px;
-  width:1200px;
-  background-color: blue;
+  width: 1140px;
+  gap: 30px;
+  
 }
-.result{
-  display:flex;
-  flex-direction: column; 
-  justify-content:space-between;
+
+
+
+
+/*-------------------RESULT----------------------*/
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: stretch;
-  gap:16px; 
-background-color: antiquewhite;
+  gap: 16px;
+
 }
-.result__video-container{
+
+.result__video-container {
+  position: relative;
   width: 711px;
   height: 386px;
-  background-color: aqua;
-}
-.result__video{
-  height:100%;
-
 
 }
-.search-form{
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.search-form__fieldset {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: none;
+}
+
+.search-form__fieldset-title{
+  color: #FFF;
+  font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height:22px;
+}
+
+.search-form__label{
   display:flex;
-  flex-direction: row; 
-  justify-content:space-between;
+  flex-direction: row;
+  align-items:start;
+  gap:5px;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+  
+}
+
+.search-form__label-nouderline{
+  border-top: none;
+  border-bottom: none;
+  padding-bottom: 5px;
+}
+
+.search-form__textfield{
+  width: 225px;
+  color: rgba(255, 255, 255, 0.70);
+  font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: none;
+  height:27px;
+}
+
+.search-form__checkbox-list{
+display: flex;
+flex-direction:row;
+justify-content: start;
+align-items: baseline;
+margin-top:10px;
+gap:15px;
+}
+
+.search-form__pseudo-checkbox{
+  width: 19px;
+  height: 19px;
+  border: 1px solid #FFF;
+}
+
+.search-form__label-text{
+  color: #FFF;
+font-family: Fira Sans Condensed;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.button
+{
+display: flex;
+width: 194px;
+height: 34px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border: 1px solid #FFF;
+}
+
+.search-form__submit-button{
+  color: #FFF;
+text-align: center;
+font-family: Fira Sans Condensed;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+background: none;
+
+}
+
+
+/*-------------------DETAILS----------------------*/
+.content__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   align-items: start;
-  background-color: aquamarine;
+  gap: 26px;
+  max-width: 399px;
+  height:auto;
 }
 
-
-
-
-
-
-
-.content__details{
-  display:flex;
-  flex-direction: column; 
-  justify-content:start;
-  align-items: start;
-  gap:26px;
-  background-color: #43167c;
-  width: auto;
+.title {
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
 }
 
-.title{
-
+.content__accent {
+  color: #545050;
 }
 
-.content__list{
-  max-height:298px;
-  overflow: scroll;
+.content__list {
+  height: 298px;
+  width:100%;
 }
