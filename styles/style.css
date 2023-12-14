@@ -45,14 +45,14 @@ ol {
 }
 
 .visually-hidden {
-  width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
-  height: 1px;
-  margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
-  padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
-  border: 0; /* убирают границу, она тоже может быть у каких-то элементов */ 
-  clip: rect(0 0 0 0); /* это свойство обрезает видимую область до нулевого значения */ 
-  overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
-  }
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 /*-------------------CONTENT----------------------*/
 .content {
@@ -234,7 +234,9 @@ background: none;
 .content__list-item:not(:last-child) {
 margin-bottom:30px;
 }
-
+.content__card-link{
+  text-decoration: none;
+}
 .content__video-card{
   display: flex;
   flex-direction: row;
