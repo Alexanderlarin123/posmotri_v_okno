@@ -19,7 +19,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;;
   font-size: 18px;
   background-color: #1B1919;
   ;
@@ -54,7 +54,7 @@ ol {
   white-space: nowrap;
 }
 
-/*-------------------CONTENT----------------------*/
+
 .content {
   display: flex;
   flex-direction: row;
@@ -65,10 +65,6 @@ ol {
 
 }
 
-
-
-
-/*-------------------RESULT----------------------*/
 .result {
   display: flex;
   flex-direction: column;
@@ -86,7 +82,6 @@ ol {
 }
 
 .result__video {
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -109,12 +104,11 @@ ol {
 
 .search-form__fieldset-title {
   color: #FFF;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  height: 22px;
 }
 
 .search-form__label {
@@ -122,55 +116,42 @@ ol {
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  border-top: 1px solid #FFF;
-  border-bottom: 1px solid #FFF;
   width: fit-content;
   cursor: pointer;
-
+}
+.search-form__label:hover .search-form__label-text {
+  text-decoration-line: underline;
 }
 
-.search-form__label:hover {
-  text-decoration: underline;
-}
 
-​ .search-form__label:focus-visible {
+​ .search-form__label:has(:focus-visible){
   outline: 1px solid #FFF;
   outline-offset: 2px;
-}
-
-.search-form__label:focus {
-  outline: none;
-}
-
-
-.search-form__label-nouderline {
-  border-top: none;
-  border-bottom: none;
-  padding-bottom: 5px;
 }
 
 .search-form__textfield {
   width: 225px;
   color: rgba(255, 255, 255, 0.70);
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  background: none;
+  background: transparent;
   height: 27px;
   appearance: none;
   border: none;
-}
-
-.search-form__textfield:focus-visible {
-  outline: none;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
 }
 
 .search-form__textfield:focus {
   outline: none;
 }
 
+.search-form__textfield:active {
+  border: 1px solid #FFF;
+}
 
 
 .search-form__checkbox-list {
@@ -189,19 +170,20 @@ ol {
   width: 19px;
   height: 19px;
   border: 1px solid #FFF;
+  position:relative;
 }
 
-.search-form__checkbox[type='checkbox']:checked+span {
-  background-image: url(../images/check.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  outline: none;
+.search-form__checkbox:checked+ .search-form__pseudo-checkbox::before {
+  content:'';
+  width: 14px;
+  height: 14px;
+  background-color: #FFF;
+  position: absolute;
 }
 
 .search-form__label-text {
   color: #FFF;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -209,23 +191,17 @@ ol {
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   border: 1px solid #FFF;
   color: rgba(255, 255, 255, 1);
   text-align: center;
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  background: none;
+  background: transparent;
   cursor: pointer;
   height: 34px;
-  box-sizing: border-box;
 }
 
 .button:focus {
@@ -236,33 +212,25 @@ ol {
   width: 194px;
 }
 
-button:hover {
+.button:hover {
   text-decoration: underline;
 }
 
 
 
-.search-form__submit-button:active {
+.button:active {
   background: #545050;
 }
 
-.search-form__submit-button:focus-visible {
+.button:focus-visible {
   outline: 1px solid #FFF;
   outline-offset: 2px;
 }
-
-
 
 .more-button {
   width: 100%;
 }
 
-.more-button:focus-visible {
-  outline: 1px solid #FFF;
-  outline-offset: 2px;
-}
-
-/*-------------------DETAILS----------------------*/
 .content__details {
   display: flex;
   flex-direction: column;
@@ -270,16 +238,15 @@ button:hover {
   align-items: start;
   gap: 26px;
   max-width: 399px;
-  height: auto;
 }
 
 .title {
   color: #FFF;
-  font-family: Oswald;
+  font-family: 'Oswald','Raleway', Arial, sans-serif;;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
-  line-height: 94%;
+  line-height: 0.94;
   text-transform: uppercase;
 }
 
@@ -294,11 +261,7 @@ button:hover {
   height: 298px;
   width: 100%;
   overflow: scroll;
-  padding-bottom: 1px;
-}
-
-.content__list::-webkit-scrollbar {
-  display: none;
+  padding: 3px;
 }
 
 .content__list-item:not(:last-child) {
@@ -306,8 +269,33 @@ button:hover {
 }
 
 .content__card-link {
+  display: flex;
+  color:rgba(255, 255, 255, 1);
   text-decoration: none;
+  padding:2px;
+  cursor: pointer;
 }
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:active {
+  background: #545050;
+}
+
+.content__card-link:focus{
+  outline: none;
+}
+.content__card-link:focus-visible{
+  outline: 1px solid #FFF;
+  outline-offset: 2px;
+}
+
+.content__card-link_current{
+  background-color:rgba(84, 80, 80, 1);
+}
+
 
 .content__video-card {
   display: flex;
@@ -316,30 +304,21 @@ button:hover {
   align-items: start;
   width: 394px;
   padding: 2px;
-  cursor: pointer;
 }
-
-.content__video-card:active {
-  background: #545050;
-}
-
-/*
-content__card-link:focus-visible{
-  outline:1px solid #FFF;
-}*/
 
 .content__video-card-description-container {
-  display: flex;
+  display:flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   gap: 6px;
   color: #FFF;
   font-style: normal;
+  flex-grow:1;
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: 'Oswald','Raleway', Arial, sans-serif;;
   font-size: 30px;
   font-weight: 700;
   text-align: end;
@@ -349,7 +328,7 @@ content__card-link:focus-visible{
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', 'Raleway', Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -359,5 +338,6 @@ content__card-link:focus-visible{
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
 }
