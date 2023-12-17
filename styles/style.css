@@ -172,7 +172,7 @@ ol {
   position: relative;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+.search-form__checkbox:checked+.search-form__pseudo-checkbox::before {
   content: "";
   width: 14px;
   height: 14px;
